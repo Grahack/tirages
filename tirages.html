@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Visualisation de tirages</title>
+    <meta name="description"
+          content="Visualisation d’issues d’une expérience aléatoire" />
+    <meta name="keywords" content="visualisation,aléatoire,collège,lycée" />
+    <link href="style.css" rel="stylesheet"/>
+</head>
+<body>
+<noscript>
+    <div style="color:#CC0000; text-align:center">
+    Besoin de Javascript pour utiliser cet outil.
+    </div>
+</noscript>
+<div id="tirages">
+    <h1>Tirages</h1>
+    <div id="issues">
+        <div class="issue">
+            <input id="issue1"    value="images/C.png" type="text"></input>
+            <input id="nb-issue1" value="120" type="text"></input>
+        </div>
+        <div class="issue">
+            <input id="issue2"    value="images/F.png" type="text"></input>
+            <input id="nb-issue2" value="20" type="text"></input>
+        </div>
+        <div class="issue">
+            <input id="issue3"    value="images/B.png" type="text"></input>
+            <input id="nb-issue3" value="50" type="text"></input>
+        </div>
+    </div>
+    <!--
+    <input id="add" value="+" type="button" onclick="add()"></input>
+    <input id="del" value="-" type="button" onclick="del()"></input>
+    -->
+    <input id="ok"  value="générer" type="button" onclick="gen()"></input>
+    <h2>Utilisation</h2>
+    <ol>
+      <li>Remplacer <code>images/C.png</code> par l’adresse d’une image sur
+          l’Internet ou votre ordinateur. Cette image doit correspondre à la
+          première issue.</li>
+      <li>Remplacer ensuite 120 par le nombre d’apparitions de cette même
+          première issue.</li>
+      <li>Recommencer pour les autres issues puis cliquer sur
+          <code>Générer</code>. Certaines lignes peuvent être laissées
+          vides.</li>
+      <li>Vous pouvez maintenant faire une copie d’écran.</li>
+    </ol>
+</div>
+<script>
+function add() {
+    alert("Pas encore fonctionnel… Désolé.");
+}
+function del() {
+    alert("Pas encore fonctionnel… Désolé.");
+}
+function gen() {
+    var issues = [];
+    var idx = 1;
+    do {
+        var url = '';
+        var urlElt = document.getElementById('issue'+idx);
+        if (urlElt) {
+            url = urlElt.value;
+            if (url) {
+                var numElt = document.getElementById('nb-issue'+idx);
+                issues.push({url:url, num:parseInt(0 + numElt.value)});
+            }
+        }
+        idx++;
+    }
+    while (url)
+    if (issues.length) {
+        document.getElementById('tirages').innerHTML = '';
+        issues.forEach(function (elt) {
+            var img = '<img src="' + elt.url + '" />';
+            for (i=0; i<elt.num; i++) {
+                document.write(img);
+            }
+        });
+    } else {
+        alert("Veuillez remplir au moins les deux premières lignes !");
+    }
+}
+</script>
+</body>
+</html>
+
