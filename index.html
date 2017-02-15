@@ -18,16 +18,16 @@
     <h1>Tirages</h1>
     <div id="issues">
         <div class="issue">
-            <input id="issue1" type="text"></input>
-            <input id="nb-issue1" type="text"></input>
+            <input id="issue1"    value="C.png" type="text"></input>
+            <input id="nb-issue1" value="120"   type="text"></input>
         </div>
         <div class="issue">
-            <input id="issue2" type="text"></input>
-            <input id="nb-issue2" type="text"></input>
+            <input id="issue2"    value="F.png" type="text"></input>
+            <input id="nb-issue2" value="20"    type="text"></input>
         </div>
         <div class="issue">
-            <input id="issue3" type="text"></input>
-            <input id="nb-issue3" type="text"></input>
+            <input id="issue3"    value="B.png" type="text"></input>
+            <input id="nb-issue3" value="50"    type="text"></input>
         </div>
     </div>
     <input id="add" value="+" type="button" onclick="add()"></input>
@@ -60,7 +60,7 @@ function gen() {
     if (issues.length) {
         document.getElementById('tirages').innerHTML = '';
         issues.forEach(function (elt) {
-            var img = '<img src="' + elt.url + '" />';
+            var img = '<img src="images/' + elt.url + '" />';
             for (i=0; i<elt.num; i++) {
                 document.write(img);
             }
